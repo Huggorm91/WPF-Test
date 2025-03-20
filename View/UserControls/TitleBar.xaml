@@ -1,0 +1,31 @@
+﻿<UserControl x:Class="WpfTest.View.UserControls.TitleBar"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WpfTest.View.UserControls"
+             mc:Ignorable="d" 
+             d:DesignHeight="40" d:DesignWidth="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Menu -->
+        <StackPanel Orientation="Horizontal">
+            <Menu>
+                <MenuItem Header="Settings" VerticalAlignment="Stretch">
+                    <MenuItem Header="Dark Mode" />
+                </MenuItem>
+            </Menu>
+        </StackPanel>
+
+        <!-- Window Buttons -->
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button x:Name="btn_Minimize" Content="_" Width="{Binding Path=ActualHeight, RelativeSource={RelativeSource Self}}" VerticalAlignment="Stretch" BorderBrush="Transparent" Background="Transparent" Click="btn_Minimize_Click" />
+            <Button x:Name="btn_Maximize" Content="O" Width="20" Height="20" BorderBrush="Transparent" Background="Transparent" Click="btn_Maximize_Click" />
+            <Button x:Name="btn_Close" Content="X" Width="20" Height="20" BorderBrush="Transparent" Background="Transparent" Click="btn_Close_Click" />
+        </StackPanel>
+    </Grid>
+</UserControl>
