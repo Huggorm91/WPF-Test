@@ -9,6 +9,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="CustomControls\Placeholder.bmp" />
+    <None Remove="Model\Placeholder.bmp" />
+    <None Remove="Styles\Placeholder.bmp" />
+    <None Remove="ViewModel\Placeholder.bmp" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="CustomControls\" />
     <Folder Include="Model\" />
     <Folder Include="Styles\" />
