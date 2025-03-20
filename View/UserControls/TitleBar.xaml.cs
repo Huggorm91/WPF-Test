@@ -32,7 +32,10 @@ namespace WpfTest.View.UserControls {
 			parent = Window.GetWindow(this);
 
 			// This call actually gets the parent window
-			Loaded += (sender, args) => { parent = Window.GetWindow(this); };
+			Loaded += (sender, args) => { 
+				parent = Window.GetWindow(this);
+				lbl_WindowName.Content = parent.Title;
+			};
 		}
 
 		private void TitleBar_Loaded(object sender, RoutedEventArgs e) {
@@ -63,6 +66,14 @@ namespace WpfTest.View.UserControls {
 			if (parent != null) {
 				parent.WindowState = WindowState.Minimized;
 			}
+		}
+
+		private void mi_DarkModeToogle_Click(object sender, RoutedEventArgs e) {
+
+		}
+
+		private void Grid_MouseLeftButtonDown(object sender, MouseButtonEventArgs e) {
+			parent.DragMove();
 		}
 	}
 }

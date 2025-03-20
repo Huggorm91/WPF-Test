@@ -19,12 +19,12 @@
 
     <Grid Margin="5">
         <Grid.RowDefinitions>
-            <RowDefinition Height="20"/>
+            <RowDefinition Height="30"/>
             <RowDefinition />
             <RowDefinition Height="15"/>
         </Grid.RowDefinitions>
         
         <!-- Title bar -->
-        <userControls:TitleBar ForceQuit="True" />
+        <userControls:TitleBar ForceQuit="True" Margin="-5" />
     </Grid>
 </Window>

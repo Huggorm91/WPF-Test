@@ -5,27 +5,45 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:WpfTest.View.UserControls"
              mc:Ignorable="d" 
-             d:DesignHeight="40" d:DesignWidth="800">
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition />
-            <ColumnDefinition Width="Auto"/>
-        </Grid.ColumnDefinitions>
+             d:DesignHeight="30" d:DesignWidth="800">
+    <UserControl.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Width" Value="{Binding Path=ActualHeight, RelativeSource={RelativeSource Self}}" />
+            <Setter Property="VerticalAlignment" Value="Stretch" />
+            <Setter Property="BorderBrush" Value="Transparent" />
+            <Setter Property="Background" Value="Transparent" />
+        </Style>
+        
+        <Style TargetType="MenuItem" x:Key="RootMenu">
+            <Setter Property="Height" Value="{Binding Path=ActualHeight, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Menu}}}" />
+        </Style>
+    </UserControl.Resources>
+    <Border BorderBrush="Black" BorderThickness="0,0,0,2">
+        <Grid MouseLeftButtonDown="Grid_MouseLeftButtonDown">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition />
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
 
-        <!-- Menu -->
-        <StackPanel Orientation="Horizontal">
-            <Menu>
-                <MenuItem Header="Settings" VerticalAlignment="Stretch">
-                    <MenuItem Header="Dark Mode" />
-                </MenuItem>
-            </Menu>
-        </StackPanel>
+            <!-- Menu -->
+            <StackPanel Orientation="Horizontal">
+                <Menu>
+                    <MenuItem Header="Settings" Style="{StaticResource RootMenu}">
+                        <MenuItem x:Name="mi_DarkModeToogle"  Header="Dark Mode" Click="mi_DarkModeToogle_Click" />
+                    </MenuItem>
+                </Menu>
+            </StackPanel>
 
-        <!-- Window Buttons -->
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-            <Button x:Name="btn_Minimize" Content="_" Width="{Binding Path=ActualHeight, RelativeSource={RelativeSource Self}}" VerticalAlignment="Stretch" BorderBrush="Transparent" Background="Transparent" Click="btn_Minimize_Click" />
-            <Button x:Name="btn_Maximize" Content="O" Width="20" Height="20" BorderBrush="Transparent" Background="Transparent" Click="btn_Maximize_Click" />
-            <Button x:Name="btn_Close" Content="X" Width="20" Height="20" BorderBrush="Transparent" Background="Transparent" Click="btn_Close_Click" />
-        </StackPanel>
-    </Grid>
+            <!-- Window Label -->
+            <Label Grid.Column="1" x:Name="lbl_WindowName" Content="TestText" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" />
+
+            <!-- Window Buttons -->
+            <StackPanel Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Right">
+                <Button x:Name="btn_Minimize" Content="_" Click="btn_Minimize_Click" />
+                <Button x:Name="btn_Maximize" Content="O" Click="btn_Maximize_Click" />
+                <Button x:Name="btn_Close" Content="X" Click="btn_Close_Click" />
+            </StackPanel>
+        </Grid>
+    </Border>
 </UserControl>
