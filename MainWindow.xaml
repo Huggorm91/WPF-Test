@@ -4,9 +4,43 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfTest"
-        mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        mc:Ignorable="d" WindowStyle="None"
+        Title="WPF Test" Height="450" Width="800">
+    
+    <!-- Remove white bar on top of window -->
+    <WindowChrome.WindowChrome>
+        <WindowChrome GlassFrameThickness="0" CornerRadius="0" CaptionHeight="0"/>
+    </WindowChrome.WindowChrome>
+    
     <Grid>
-
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition />
+            <RowDefinition Height="15"/>
+        </Grid.RowDefinitions>
+        
+        <!-- Title bar -->
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            
+            <!-- Menu -->
+            <StackPanel Orientation="Horizontal">
+                <Menu>
+                    <MenuItem Header="Settings">
+                        <MenuItem Header="Dark Mode" />
+                    </MenuItem>
+                </Menu>
+            </StackPanel>
+            
+            <!-- Window Buttons -->
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <Button x:Name="btn_Minimize" Content="_" Width="20" Height="20" BorderBrush="Transparent" Background="Transparent" Click="btn_Minimize_Click" />
+                <Button x:Name="btn_Maximize" Content="O" Width="20" Height="20" BorderBrush="Transparent" Background="Transparent" Click="btn_Maximize_Click" />
+                <Button x:Name="btn_Close" Content="X" Width="20" Height="20" BorderBrush="Transparent" Background="Transparent" Click="btn_Close_Click" />
+            </StackPanel>
+        </Grid>
     </Grid>
 </Window>
