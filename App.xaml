@@ -4,6 +4,11 @@
              xmlns:local="clr-namespace:WpfTest"
              StartupUri="View/MainWindow.xaml">
     <Application.Resources>
-         
+        <ResourceDictionary>
+            <!-- Theme needs to be first Merged Library, otherwise the indices in App.xaml.cs needs to be updated -->
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/View/Styles/LightMode.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>

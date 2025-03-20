@@ -1,0 +1,12 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!-- Test to see if it works -->
+    <SolidColorBrush x:Key="BackgroundBrush" Color="{x:Static SystemColors.WindowColor}" />
+    <SolidColorBrush x:Key="ForegroundBrush" Color="{x:Static SystemColors.WindowTextColor}" />
+
+    <!-- TODO: Find what colors should actually be used -->
+    <SolidColorBrush x:Key="ButtonBrush" Color="{x:Static SystemColors.MenuBarColor}" />
+    <SolidColorBrush x:Key="ButtonHoveredBrush" Color="{x:Static SystemColors.HighlightColor}" />
+    <SolidColorBrush x:Key="ButtonClickedBrush" Color="{x:Static SystemColors.ActiveCaptionColor}" />
+</ResourceDictionary>

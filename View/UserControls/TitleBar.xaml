@@ -12,14 +12,22 @@
             <Setter Property="VerticalAlignment" Value="Stretch" />
             <Setter Property="BorderBrush" Value="Transparent" />
             <Setter Property="Background" Value="Transparent" />
+            <Setter Property="Foreground" Value="{DynamicResource ForegroundBrush}" />
         </Style>
-        
+
+        <Style TargetType="MenuItem">
+            <Setter Property="Background" Value="{DynamicResource BackgroundBrush}" />
+            <Setter Property="Foreground" Value="{DynamicResource ForegroundBrush}" />
+        </Style>
+
         <Style TargetType="MenuItem" x:Key="RootMenu">
             <Setter Property="Height" Value="{Binding Path=ActualHeight, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Menu}}}" />
+            <Setter Property="Background" Value="{DynamicResource ButtonBrush}" />
+            <Setter Property="Foreground" Value="{DynamicResource ForegroundBrush}" />
         </Style>
     </UserControl.Resources>
     <Border BorderBrush="Black" BorderThickness="0,0,0,2">
-        <Grid MouseLeftButtonDown="Grid_MouseLeftButtonDown">
+        <Grid MouseLeftButtonDown="Grid_MouseLeftButtonDown" Background="{DynamicResource BackgroundBrush}">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition />
@@ -31,12 +39,15 @@
                 <Menu>
                     <MenuItem Header="Settings" Style="{StaticResource RootMenu}">
                         <MenuItem x:Name="mi_DarkModeToogle"  Header="Dark Mode" Click="mi_DarkModeToogle_Click" />
+                        <MenuItem x:Name="mi_HighContrastModeToogle"  Header="High Contrast Mode" Click="mi_HighContrastModeToogle_Click" />
                     </MenuItem>
                 </Menu>
             </StackPanel>
 
             <!-- Window Label -->
-            <Label Grid.Column="1" x:Name="lbl_WindowName" Content="TestText" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" />
+            <Label Grid.Column="1" x:Name="lbl_WindowName" Content="TestText" 
+                   HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                   Foreground="{DynamicResource ForegroundBrush}" />
 
             <!-- Window Buttons -->
             <StackPanel Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Right">

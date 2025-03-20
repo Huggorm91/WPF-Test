@@ -17,7 +17,7 @@
         
     </Window.Resources>
 
-    <Grid Margin="5">
+    <Grid Background="{DynamicResource BackgroundBrush}">
         <Grid.RowDefinitions>
             <RowDefinition Height="30"/>
             <RowDefinition />
@@ -25,6 +25,6 @@
         </Grid.RowDefinitions>
         
         <!-- Title bar -->
-        <userControls:TitleBar ForceQuit="True" Margin="-5" />
+        <userControls:TitleBar ForceQuit="True" />
     </Grid>
 </Window>

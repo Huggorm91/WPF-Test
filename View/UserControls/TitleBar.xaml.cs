@@ -68,12 +68,34 @@ namespace WpfTest.View.UserControls {
 			}
 		}
 
-		private void mi_DarkModeToogle_Click(object sender, RoutedEventArgs e) {
-
-		}
-
 		private void Grid_MouseLeftButtonDown(object sender, MouseButtonEventArgs e) {
 			parent.DragMove();
+		}
+
+		private void mi_DarkModeToogle_Click(object sender, RoutedEventArgs e) {
+			if (App.IsCurrentTheme("DarkMode")) {
+				App.SetTheme("LightMode");
+				mi_DarkModeToogle.Header = "Dark Mode";
+			}
+			else {
+				App.SetTheme("DarkMode");
+				mi_DarkModeToogle.Header = "Light Mode";
+			}
+
+			mi_HighContrastModeToogle.Header = "High Contrast Mode";
+		}
+
+		private void mi_HighContrastModeToogle_Click(object sender, RoutedEventArgs e) {
+			if (App.IsCurrentTheme("HighContrastMode")) {
+				App.SetTheme("LightMode");
+				mi_HighContrastModeToogle.Header = "High Contrast Mode";
+			}
+			else {
+				App.SetTheme("HighContrastMode");
+				mi_HighContrastModeToogle.Header = "Light Mode";
+			}
+
+			mi_DarkModeToogle.Header = "Dark Mode";
 		}
 	}
 }
