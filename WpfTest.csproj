@@ -10,13 +10,12 @@
 
   <ItemGroup>
     <None Remove="Model\Placeholder.bmp" />
-    <None Remove="Styles\Placeholder.bmp" />
+    <None Remove="View\Styles\Placeholder.bmp" />
     <None Remove="ViewModel\Placeholder.bmp" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="Model\" />
-    <Folder Include="Styles\" />
     <Folder Include="ViewModel\" />
   </ItemGroup>
 
